@@ -1,8 +1,8 @@
 fun main() {
     val sol = Solution()
-    val arg0 = arrayOf("flower","flow","flight")
-    val arg1 = "lo"
+    val arg0 = "aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"
+    val arg1 = 1
 
-    println(sol.hammingWeight(521))
+    println(sol.printerError(arg0))
 }
 
