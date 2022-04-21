@@ -1,3 +1,5 @@
+import kotlin.text.Regex
+
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {
         // Find two values where the indices add up to target.
@@ -85,7 +87,7 @@ class Solution {
             .joinToString(separator = "") { "(${it[1]}, ${it[0]})" }
     }
 
-    fun count(number: Int): Int {
+    fun count1(number: Int): Int {
         if (number % 10 != 0) { return -1 }
         val values: List<Int> = listOf(500, 200, 100, 50, 20, 10)
 
@@ -102,6 +104,27 @@ class Solution {
         val badLetters = "nopqrstuvwxyz".toCharArray()
         val totalBad = s.filter { badLetters.contains(it) }.length
         return "${totalBad}/${s.length}"
+    }
+
+    fun getAge(yearsOld: String): Int {
+        return Regex("""(\d) years old""").find(yearsOld)?.groups?.get(1)?.value?.toInt() ?: -1
+    }
+
+    fun oddCount(n: Int): Int {
+        // Wow!  Integer division!
+        return Math.floorDiv(n, 2)
+    }
+
+    fun maps(x: IntArray): IntArray {
+        return x.map {2 * it}.toIntArray()
+    }
+
+    fun loveFun(flowerA: Int, flowerB: Int): Boolean {
+        return (flowerA + flowerB) % 2 != 0
+    }
+
+    fun sum1(numbers: IntArray): Int {
+        return numbers.filter { it > 0 }.sum()
     }
 
 }

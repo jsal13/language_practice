@@ -1,4 +1,5 @@
-val s = "hey dudes   whats up   in    here  "
-s.split(' ').last { it.isNotBlank() }
-"1000001001".toInt(2)
-println(Integer.toBinaryString(521))
+val regex: Regex = Regex("""(\d) years old""")
+val matchResult = regex.find("8 years old")
+matchResult?.groups?.get(1)
+
+15.0/2

@@ -1,8 +1,8 @@
 fun main() {
     val sol = Solution()
-    val arg0 = "aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"
+    val arg0 = intArrayOf(1, -4, 7, 12)
     val arg1 = 1
 
-    println(sol.printerError(arg0))
+    println(sol.sum1(arg0))
 }
 
