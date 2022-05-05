@@ -1,6 +1,57 @@
 import kotlin.text.Regex
 
 class Solution {
+    fun countPositivesSumNegatives(input : Array<Int>?) : Array<Int> {
+        if (input != null && input.isNotEmpty()) {
+            return arrayOf(input.count { it > 0 }, input.filter { it < 0 }.sum())
+        }
+        return arrayOf()
+    }
+
+    fun digitize(n:Long):IntArray {
+        return n.toString().reversed().map { it -> it.digitToInt() }.toIntArray()
+    }
+
+    fun calculateYears(years: Int): Array<Int> {
+        var catYears = 0
+        var dogYears = 0
+        var yearsLeft = years
+        while (yearsLeft > 0) {
+            when (yearsLeft) {
+                1 -> {
+                    catYears += 15
+                    dogYears += 15
+                }
+                2 -> {
+                    catYears += 9
+                    dogYears += 9
+                }
+                else -> {
+                    catYears += 4
+                    dogYears += 5
+                }
+            }
+            yearsLeft -= 1
+        }
+        return arrayOf(years, catYears, dogYears);
+    }
+
+    fun areaOrPerimeter(l:Int, w:Int):Int {
+        return if (l == w) l * w else 2 * l + 2 * w
+    }
+
+    fun highAndLow(numbers: String): String {
+        val numList = numbers.split(" ").map {it -> it.toInt()}
+        return "${numList.maxOrNull() ?: 0} ${numList.minOrNull() ?: 0}"
+    }
+
+    //https://www.codewars.com/kata/5b180e9fedaa564a7000009a
+
+}
+
+
+
+class Solution_1 {
     fun twoSum(nums: IntArray, target: Int): IntArray {
         // Find two values where the indices add up to target.
         for (idx in nums.indices) {
