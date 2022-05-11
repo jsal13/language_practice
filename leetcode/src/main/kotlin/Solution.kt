@@ -1,14 +1,14 @@
 import kotlin.text.Regex
 
 class Solution {
-    fun countPositivesSumNegatives(input : Array<Int>?) : Array<Int> {
+    fun countPositivesSumNegatives(input: Array<Int>?): Array<Int> {
         if (input != null && input.isNotEmpty()) {
             return arrayOf(input.count { it > 0 }, input.filter { it < 0 }.sum())
         }
         return arrayOf()
     }
 
-    fun digitize(n:Long):IntArray {
+    fun digitize(n: Long): IntArray {
         return n.toString().reversed().map { it -> it.digitToInt() }.toIntArray()
     }
 
@@ -36,17 +36,36 @@ class Solution {
         return arrayOf(years, catYears, dogYears);
     }
 
-    fun areaOrPerimeter(l:Int, w:Int):Int {
+    fun areaOrPerimeter(l: Int, w: Int): Int {
         return if (l == w) l * w else 2 * l + 2 * w
     }
 
     fun highAndLow(numbers: String): String {
-        val numList = numbers.split(" ").map {it -> it.toInt()}
+        val numList = numbers.split(" ").map { it -> it.toInt() }
         return "${numList.maxOrNull() ?: 0} ${numList.minOrNull() ?: 0}"
     }
 
-    //https://www.codewars.com/kata/5b180e9fedaa564a7000009a
+    fun solve(s: String): String {
+        val numUpper = s.map { it -> if (it.lowercase()[0] == it) 0 else 1 }.sum()
+        if (numUpper > (s.length / 2)) {
+            return s.uppercase()
+        }
+        return s.lowercase()
+    }
 
+    fun repeatStr(r: Int, str: String): String {
+        return str.repeat(r)
+    }
+
+    fun reverseWords(str: String): String = str.split(" ").reversed().joinToString(" ")
+
+    fun removeChar(str: String): String {
+        return str.substring(1, str.length - 2)
+    }
+
+    fun abbrevName(name: String): String {
+        return name.split(" ").map { it -> it[0].uppercaseChar() }.joinToString(".")
+    }
 }
 
 
